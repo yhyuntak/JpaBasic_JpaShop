@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "Orders")
+@Table(name = "ORDERS")
 @NoArgsConstructor
 public class Order {
 
@@ -17,19 +17,22 @@ public class Order {
     @Column(name = "ORDER_ID")
     private Long id;
 
-    @ManyToOne // Order 입장에선 여러 주문을 회원 하나가 할 수 있으니
-    @JoinColumn(name = "MEMBER_ID")
+    @ManyToOne
+    @JoinColumn(name = "MEMBER_ID") // order가 member의 주인이다
     // FK를 가지
     private Member member;
 
+    @OneToOne
+    @JoinColumn(name = "DELIVERY_ID")
+    private Delivery delivery;
 
-    @OneToMany(mappedBy = "ORDER_ID") // 현재 ORDER_ID에 맞는 놈이 갖고 있는 ITEM 목록들이니
-    // ORDER_ID로 매핑된 이라는 의미로써 사용 가능할 듯.
-    private List<OrderItem> orderItems = new ArrayList<>();
     private LocalDateTime OrderDate;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> orderItems = new ArrayList<>();
 
     public void addOrderItem(OrderItem orderItem) {
         orderItems.add(orderItem);

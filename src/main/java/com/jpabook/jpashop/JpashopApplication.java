@@ -20,8 +20,6 @@ public class JpashopApplication {
 		tx.begin();
 
 		try{
-			Order order = new Order();
-			Order.addOrderItem(new OrderItem());
 			tx.commit();
 		} catch (Exception e){
 			tx.rollback();
