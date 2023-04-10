@@ -9,6 +9,9 @@
         <class>com.jpabook.jpashop.domain.Delivery</class>
         <class>com.jpabook.jpashop.domain.Category</class>
         <class>com.jpabook.jpashop.domain.CategoryItem</class>
+        <class>com.jpabook.jpashop.domain.Album</class>
+        <class>com.jpabook.jpashop.domain.Book</class>
+        <class>com.jpabook.jpashop.domain.Movie</class>
 
         <properties>
             <!-- 필수 속성 -->

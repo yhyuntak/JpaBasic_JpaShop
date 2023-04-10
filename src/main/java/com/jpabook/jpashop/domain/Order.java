@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "ORDERS")
 @NoArgsConstructor
-public class Order {
+public class Order extends BaseEntity{
 
     @Id
     @GeneratedValue
